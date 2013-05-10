@@ -114,7 +114,9 @@ class MySQLDiff {
             $sql[] = ')';
             
             $sql[] = 'ENGINE = '.$table['Engine'];
-            $sql[] = 'AUTO_INCREMENT = '.$table['Auto_increment'];
+            if (array_key_exists('Auto_increment', $table)) {
+                $sql[] = 'AUTO_INCREMENT = '.$table['Auto_increment'];
+            }
             $sql[] = 'COMMENT = \''.$table['Comment'].'\'';
             $sql[] = 'COLLATE '.$table['Collation'];
             
