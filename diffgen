@@ -25,10 +25,15 @@ if(isset($options['t'])) {
 } else {
     $options['t'] = 'show';
 }
+if(isset($options['p'])) {
+  $dbpassword = $options['p'];
+} else {
+  $dbpassword = null;
+}
 try {
     $diff = new MySQLDiff(array(
         'dbuser' => $options['u'],
-        'dbpass' => $options['p'],
+        'dbpass' => $dbpassword,
         'dbname' => $options['d'],
         'dbhost' => $options['h'],
         'dumpxml' => $options['f'],
